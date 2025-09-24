@@ -1,0 +1,412 @@
+/* 🌸 General Page Styling */
+body {
+  font-family: 'Inter', sans-serif;
+  color: #222;
+  background: #fff;
+  scroll-behavior: smooth;
+  margin: 0;
+  padding: 0;
+}
+
+/* Prevent content from hiding behind fixed navbar */
+body::before {
+  content: "";
+  display: block;
+  height: 70px; /* same height as navbar */
+}
+
+/* Headings */
+h1, h2 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+}
+
+/* 🌟 Fullscreen Hero Section */
+#hero {
+  height: 100vh; /* Full viewport height */
+  width: 100%;   /* Full width */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: url('your-image.jpg') no-repeat center center/cover;
+  position: relative;
+  color: #fff; /* Make text visible */
+  margin-top: -70px; /* cancel out navbar height */
+}
+
+/* Dark overlay for better text contrast */
+#hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.45);
+  z-index: 1;
+}
+
+#hero h1,
+#hero p,
+#hero a {
+  position: relative;
+  z-index: 2; /* Keep content above overlay */
+}
+
+#hero h1 {
+  font-size: 3rem;
+  font-weight: 700;
+}
+
+#hero p {
+  font-size: 1.25rem;
+  margin-bottom: 20px;
+}
+
+#hero a.btn {
+  font-size: 1.1rem;
+  padding: 12px 30px;
+  border-radius: 30px;
+}
+
+/* 🌸 Navbar Styling */
+.navbar {
+  padding: 0.5rem 2rem;
+  background-color: #EBD6FB !important; /* pastel blue navbar */
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+}
+.navbar-brand img {
+  height: 60px;
+  width: auto;
+  display: block;
+}
+
+/* 🌸 Navbar Links as Pastel Buttons */
+.navbar .nav-link {
+  margin: 0 6px;
+  padding: 8px 14px;
+  border-radius: 8px;
+  background-color: #F6CED8 !important;  /* pastel pink */
+  color: #000 !important;
+  font-weight: 600;
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.navbar .nav-link:hover {
+  background-color: #FAD9E3 !important;  /* softer pastel pink on hover */
+  color: #000 !important;
+  transform: translateY(-3px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+.navbar .nav-link.active {
+  background-color: #C1E1C1 !important;  /* pastel green for active link */
+  color: #000 !important;
+  font-weight: 700;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+
+/* 🌸 Card Section */
+.card {
+  border: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+.card-img-top {
+  height: 180px;
+  object-fit: cover;
+}
+.card-footer {
+  background: #fff;
+  font-weight: bold;
+  color: #B24A6B;
+}
+
+/* 🌸 About Section */
+#about {
+  background-color: #EBD6FB !important;
+  padding: 60px 20px;
+}
+
+/* 🌸 Menu Section */
+#menu {
+  background-color: #EBD6FB !important;
+  padding: 60px 20px;
+}
+#menu .card {
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+}
+
+/* 🌸 Gallery Section */
+#gallery {
+  padding: 60px 20px;
+  background-color: #EBD6FB !important;
+}
+#gallery .gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 15px;
+}
+#gallery .gallery-item {
+  overflow: hidden;
+  border-radius: 12px;
+  position: relative;
+  cursor: pointer;
+  aspect-ratio: 1/1;
+}
+#gallery .gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease, filter 0.4s ease;
+}
+#gallery .gallery-item:hover img {
+  transform: scale(1.1);
+  filter: brightness(85%);
+}
+#gallery .gallery-item::after {
+  content: "View";
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  background: rgba(178, 74, 107, 0.8);
+  color: #fff;
+  padding: 4px 10px;
+  font-size: 0.8rem;
+  border-radius: 6px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+#gallery .gallery-item:hover::after {
+  opacity: 1;
+}
+#gallery img {
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+#gallery img:hover {
+  transform: scale(1.05);
+}
+
+/* 🌸 Reviews Section */
+#testimonials {
+  background-color: #EBD6FB !important;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+/* Customer Reviews Carousel */
+#testimonials .carousel-inner {
+  background-color: #fff;
+  border-radius: 14px;
+  padding: 35px;
+  box-shadow: 0 6px 16px rgba(236, 8, 8, 0.12);
+  max-width: 850px;
+  margin: 0 auto 40px auto;
+}
+
+#testimonials .carousel-item {
+  background-color: transparent !important;
+  padding: 10px;
+}
+
+/* Review text */
+#testimonials blockquote {
+  font-size: 1.3rem;
+  font-style: italic;
+  color: #333;
+  margin: 0;
+  background: transparent;
+}
+
+#testimonials cite {
+  display: inline-block;
+  margin-top: 15px;
+  font-size: 1rem;
+  font-style: normal;
+  color: #555;
+  background-color: #ffe6f0;
+  padding: 6px 14px;
+  border-radius: 8px;
+  font-weight: 500;
+}
+
+/* 🌸 Carousel arrows match background */
+#testimonials .carousel-control-prev,
+#testimonials .carousel-control-next {
+  background-color: #EBD6FB !important; /* same as section background */
+  border-radius: 8px;
+  width: 60px;   /* adjust arrow box size */
+  height: 60px;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 0.9;  /* slightly visible */
+  transition: all 0.3s ease;
+}
+
+#testimonials .carousel-control-prev:hover,
+#testimonials .carousel-control-next:hover {
+  background-color: #fad9e3 !important; /* soft pastel hover */
+  opacity: 1;
+}
+
+
+/* 🌸 Leave a Review Form */
+#testimonials .card {
+  background-color: #E0FBE2;
+  border-radius: 14px;
+  padding: 30px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+#testimonials .card h3 {
+  color: #b24a6b;
+  font-weight: 700;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+#testimonials .form-label {
+  font-weight: 600;
+  color: #444;
+}
+
+#testimonials .form-control,
+#testimonials textarea {
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+#testimonials button {
+  background-color: #F6CED8;
+  color: #222;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 20px;
+  transition: all 0.3s ease;
+}
+
+#testimonials button:hover {
+  background-color: #fad9e3;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+/* 🌸 Contact Section */
+#contact {
+  background-color: #EBD6FB !important;
+  padding: 60px 20px;
+}
+#contact .card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+#contact .card-body {
+  flex: 0 0 auto;
+  padding: 20px;
+}
+#contact .map-container {
+  flex: 1 1 auto;
+  min-height: 350px;
+  border-radius: 0 0 12px 12px;
+  overflow: hidden;
+  margin-top: auto;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+#contact iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+  border-radius: 0 0 12px 12px;
+}
+
+/* 🌸 Footer Styling */
+footer {
+  background-color: #EBD6FB;
+  color: #222;
+  padding: 40px 0;
+  border-top: 3px solid #B24A6B;
+  text-align: center;
+  font-family: 'Inter', sans-serif;
+}
+
+footer .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Social Media Icons */
+footer .mb-3 a {
+  color: #222;
+  font-size: 1.6rem;
+  margin: 0 10px;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+footer .mb-3 a:hover {
+  color: #B24A6B;
+  transform: scale(1.1);
+}
+
+/* Opening Hours & Info Text */
+footer p {
+  margin-bottom: 10px;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+footer small {
+  color: #666;
+  font-size: 0.875rem;
+  margin-top: 10px;
+  display: block;
+}
+
+/* Social Icons */
+footer i {
+  font-size: 1.5rem;
+  transition: transform 0.3s ease;
+}
+footer i:hover {
+  transform: translateY(-4px);
+}
+
+/* Responsive Footer */
+@media (max-width: 768px) {
+  footer {
+    padding: 30px 0;
+  }
+  footer .mb-3 a {
+    font-size: 1.3rem;
+    margin: 0 8px;
+  }
+  footer p {
+    font-size: 0.95rem;
+  }
+  footer small {
+    font-size: 0.8rem;
+  }
+}
